@@ -352,7 +352,7 @@ class Literal {
                        std::make_integer_sequence<int, num_fields_>());
   }
 
-  static_assert(sizeof...(fields_) <= std::numeric_limits<ValueType>::max(),
+  static_assert(sizeof...(fields_) <= (std::numeric_limits<ValueType>::max)(),
                 "Too many fields.");
 
   static_assert(sizeof...(fields_) <= 1 || !has_duplicates(),

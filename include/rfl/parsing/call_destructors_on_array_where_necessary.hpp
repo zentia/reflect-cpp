@@ -14,7 +14,7 @@ namespace rfl::parsing {
 template <class T, size_t _size>
 void call_destructors_on_array_where_necessary(const size_t _num_set,
                                                std::array<T, _size>* _array) {
-  for (size_t i = 0; i < std::min(_num_set, _size); ++i) {
+  for (size_t i = 0; i < (std::min)(_num_set, _size); ++i) {
     if constexpr (!std::is_array_v<T> &&
                   std::is_destructible_v<std::remove_cv_t<T>>) {
       (*_array)[i].~T();

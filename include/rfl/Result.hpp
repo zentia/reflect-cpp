@@ -68,7 +68,7 @@ template <class T>
 class Result {
   static_assert(!std::is_same<T, Error>(), "The result type cannot be Error.");
 
-  using TOrErr = std::array<unsigned char, std::max(sizeof(T), sizeof(Error))>;
+  using TOrErr = std::array<unsigned char, (std::max)(sizeof(T), sizeof(Error))>;
 
  public:
   // using Type = T;
@@ -379,7 +379,7 @@ class Result {
   bool success_;
 
   /// The underlying data, can either be T or Error.
-  alignas(std::max(alignof(T), alignof(Error))) TOrErr t_or_err_;
+  alignas((std::max)(alignof(T), alignof(Error))) TOrErr t_or_err_;
 };
 
 #endif

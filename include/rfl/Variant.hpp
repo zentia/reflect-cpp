@@ -29,7 +29,7 @@ class Variant {
 
   using IndexType =
       std::conditional_t<sizeof...(AlternativeTypes) <=
-                             std::numeric_limits<std::uint8_t>::max(),
+                             (std::numeric_limits<std::uint8_t>::max)(),
                          std::uint8_t, std::uint16_t>;
 
   static constexpr IndexType size_ = sizeof...(AlternativeTypes);
