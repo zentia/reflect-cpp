@@ -12,3 +12,4 @@ target("reflect-cpp")
         "src/reflectcpp_json.cpp", 
         "src/yyjson.c"
     )
+target_end()
